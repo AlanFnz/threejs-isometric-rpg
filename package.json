@@ -6,8 +6,12 @@
   "author": "Alan Fernández Saavedra",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.168.0",
     "eslint": "^9.10.0",
     "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
     "vite": "^5.4.3"
   },
   "dependencies": {
