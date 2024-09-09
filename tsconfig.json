@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "strict": true,
+    "allowJs": true,
+    "checkJs": false,
+    "target": "es2017",
+    "module": "commonjs",
+    "typeRoots": ["./node_modules/@types", "./src"],
+    "types": ["assets"]
+  },
+  "include": ["**/*.ts"]
+}
