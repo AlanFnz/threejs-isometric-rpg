@@ -1,0 +1,13 @@
+{
+  "name": "threejs-isometric-rpg",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/AlanFnz/threejs-isometric-rpg.git",
+  "author": "Alan Fernández Saavedra",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^9.10.0",
+    "prettier": "^3.3.3",
+    "vite": "^5.4.3"
+  }
+}
