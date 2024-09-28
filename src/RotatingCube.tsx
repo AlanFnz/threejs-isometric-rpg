@@ -2,7 +2,13 @@ import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const RotatingCube: React.FC = () => {
+interface RotatingCubeProps {
+  position?: [number, number, number];
+}
+
+const RotatingCube: React.FC<RotatingCubeProps> = ({
+  position = [0, 0, 0],
+}) => {
   const cubeRef = useRef<THREE.Mesh>(null);
 
   useFrame(() => {
@@ -13,7 +19,7 @@ const RotatingCube: React.FC = () => {
   });
 
   return (
-    <mesh ref={cubeRef}>
+    <mesh ref={cubeRef} position={position}>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color="orange" />
     </mesh>
