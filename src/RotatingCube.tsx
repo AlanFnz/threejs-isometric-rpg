@@ -4,10 +4,12 @@ import * as THREE from 'three';
 
 interface RotatingCubeProps {
   position?: [number, number, number];
+  color?: string;
 }
 
 const RotatingCube: React.FC<RotatingCubeProps> = ({
   position = [0, 0, 0],
+  color = 'red',
 }) => {
   const cubeRef = useRef<THREE.Mesh>(null);
 
@@ -19,9 +21,9 @@ const RotatingCube: React.FC<RotatingCubeProps> = ({
   });
 
   return (
-    <mesh ref={cubeRef} position={position}>
+    <mesh ref={cubeRef} position={position} castShadow receiveShadow>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color="orange" />
+      <meshStandardMaterial color={color} />
     </mesh>
   );
 };
