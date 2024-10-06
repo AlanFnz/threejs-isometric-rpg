@@ -36,7 +36,6 @@ const createTrees = (
       Math.floor(height * Math.random())
     );
 
-    // avoid placing trees on top of each other
     if (objectMap.has(`${coords.x}-${coords.y}`)) continue;
 
     const treeMesh = new THREE.Mesh(treeGeometry, treeMaterial);
@@ -78,7 +77,6 @@ const createRocks = (
       Math.floor(height * Math.random())
     );
 
-    // Avoid placing rocks on top of each other
     if (objectMap.has(`${coords.x}-${coords.y}`)) continue;
 
     rockMesh.position.set(coords.x + 0.5, 0, coords.y + 0.5);
@@ -116,7 +114,6 @@ const createBushes = (
       Math.floor(height * Math.random())
     );
 
-    // avoid placing bushes on top of each other
     if (objectMap.has(`${coords.x}-${coords.y}`)) continue;
 
     bushMesh.position.set(coords.x + 0.5, radius, coords.y + 0.5);

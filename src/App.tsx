@@ -4,6 +4,7 @@ import { OrbitControls, Stats } from '@react-three/drei';
 import { button, Leva, useControls } from 'leva';
 import RotatingCube from './RotatingCube';
 import World from './World';
+import { useCubeControls, useWorldControls } from './hooks/useControlsConfig';
 
 const App: React.FC = () => {
   const {
@@ -12,36 +13,9 @@ const App: React.FC = () => {
     cubePositionX,
     cubePositionY,
     cubePositionZ,
-  } = useControls('Cube Controls', {
-    lightIntensity: { value: 3, min: 0, max: 5, step: 0.1 },
-    cubeColor: '#ff6347',
-    cubePositionX: { value: 0, min: -10, max: 10 },
-    cubePositionY: { value: 0, min: -10, max: 10 },
-    cubePositionZ: { value: 0, min: -10, max: 10 },
-  });
+  } = useCubeControls();
 
-  const { width, height, treeCount, rockCount, bushCount } = useControls(
-    'World Controls',
-    {
-      width: { value: 20, min: 1, max: 100, step: 1 },
-      height: { value: 20, min: 1, max: 100, step: 1 },
-      treeCount: { value: 10, min: 1, max: 100, step: 1 },
-      rockCount: { value: 20, min: 1, max: 100, step: 1 },
-      bushCount: { value: 10, min: 1, max: 100, step: 1 },
-    }
-  );
-
-  useControls('World Controls', {
-    generate: button(() => {
-      console.log('Generating world with current parameters:', {
-        width,
-        height,
-        treeCount,
-        rockCount,
-        bushCount,
-      });
-    }),
-  });
+  const { width, height, treeCount, rockCount, bushCount } = useWorldControls();
 
   return (
     <>
