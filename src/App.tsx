@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stats } from '@react-three/drei';
 import { Leva, useControls } from 'leva';
 import RotatingCube from './RotatingCube';
+import World from './World';
 
 const App: React.FC = () => {
   const {
@@ -44,6 +45,8 @@ const App: React.FC = () => {
           position={[cubePositionX, cubePositionY, cubePositionZ]}
           color={cubeColor}
         />
+
+        <World width={100} height={100} />
       </Canvas>
 
       <Leva />
