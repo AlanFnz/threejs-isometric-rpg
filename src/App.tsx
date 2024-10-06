@@ -1,10 +1,11 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Stats } from '@react-three/drei';
-import { button, Leva, useControls } from 'leva';
+import { Stats } from '@react-three/drei';
+import { useCubeControls, useWorldControls } from './hooks/useControlsConfig';
+import { Leva } from 'leva';
 import RotatingCube from './RotatingCube';
 import World from './World';
-import { useCubeControls, useWorldControls } from './hooks/useControlsConfig';
+import CameraController from './CameraController';
 
 const App: React.FC = () => {
   const {
@@ -20,13 +21,13 @@ const App: React.FC = () => {
   return (
     <>
       <Canvas
-        camera={{ position: [5, 5, 5], fov: 75 }}
         style={{
           width: '100vw',
           height: '100vh',
         }}
       >
         <ambientLight intensity={0.1} />
+
         <directionalLight
           position={[10, 10, 5]}
           intensity={lightIntensity}
@@ -35,7 +36,7 @@ const App: React.FC = () => {
 
         <Stats />
 
-        <OrbitControls />
+        <CameraController width={width} height={height} />
 
         <RotatingCube
           position={[cubePositionX, cubePositionY, cubePositionZ]}
@@ -50,7 +51,6 @@ const App: React.FC = () => {
           bushCount={bushCount}
         />
       </Canvas>
-
       <Leva />
     </>
   );
