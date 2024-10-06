@@ -1,7 +1,7 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stats } from '@react-three/drei';
-import { Leva, useControls } from 'leva';
+import { button, Leva, useControls } from 'leva';
 import RotatingCube from './RotatingCube';
 import World from './World';
 
@@ -12,12 +12,35 @@ const App: React.FC = () => {
     cubePositionX,
     cubePositionY,
     cubePositionZ,
-  } = useControls({
-    lightIntensity: { value: 1.5, min: 0, max: 5, step: 0.1 },
+  } = useControls('Cube Controls', {
+    lightIntensity: { value: 3, min: 0, max: 5, step: 0.1 },
     cubeColor: '#ff6347',
     cubePositionX: { value: 0, min: -10, max: 10 },
     cubePositionY: { value: 0, min: -10, max: 10 },
     cubePositionZ: { value: 0, min: -10, max: 10 },
+  });
+
+  const { width, height, treeCount, rockCount, bushCount } = useControls(
+    'World Controls',
+    {
+      width: { value: 20, min: 1, max: 100, step: 1 },
+      height: { value: 20, min: 1, max: 100, step: 1 },
+      treeCount: { value: 10, min: 1, max: 100, step: 1 },
+      rockCount: { value: 20, min: 1, max: 100, step: 1 },
+      bushCount: { value: 10, min: 1, max: 100, step: 1 },
+    }
+  );
+
+  useControls('World Controls', {
+    generate: button(() => {
+      console.log('Generating world with current parameters:', {
+        width,
+        height,
+        treeCount,
+        rockCount,
+        bushCount,
+      });
+    }),
   });
 
   return (
@@ -31,7 +54,6 @@ const App: React.FC = () => {
       >
         <ambientLight intensity={0.1} />
         <directionalLight
-          color="red"
           position={[10, 10, 5]}
           intensity={lightIntensity}
           castShadow={true}
@@ -46,7 +68,13 @@ const App: React.FC = () => {
           color={cubeColor}
         />
 
-        <World width={100} height={100} />
+        <World
+          width={width}
+          height={height}
+          treeCount={treeCount}
+          rockCount={rockCount}
+          bushCount={bushCount}
+        />
       </Canvas>
 
       <Leva />
