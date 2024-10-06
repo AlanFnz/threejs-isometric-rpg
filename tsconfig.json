@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "strict": true,
     "allowJs": true,
     "checkJs": false,
     "target": "es2017",
     "module": "commonjs",
-    "typeRoots": ["./node_modules/@types", "./src"],
-    "types": ["assets"]
+    "typeRoots": ["./node_modules/@types"],
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx", 
   },
   "include": ["**/*.ts", "index.tsx", "src"]
 }
