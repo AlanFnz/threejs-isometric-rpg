@@ -4,8 +4,8 @@ import { Stats } from '@react-three/drei';
 import { useCubeControls, useWorldControls } from './hooks/useControlsConfig';
 import { Leva } from 'leva';
 import RotatingCube from './RotatingCube';
-import World from './World';
-import CameraController from './CameraController';
+import World from './components/World';
+import CameraController from './components/CameraController';
 
 const App: React.FC = () => {
   const {
@@ -20,12 +20,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Canvas
-        style={{
-          width: '100vw',
-          height: '100vh',
-        }}
-      >
+      <Canvas style={{ width: '100vw', height: '100vh' }}>
         <ambientLight intensity={0.1} />
 
         <directionalLight
